@@ -1,8 +1,11 @@
 #!/usr/bin/env node
 
-import { checkForUpdates } from "../utils.js";
+import { cwd } from "process";
+import { checkForUpdates, join } from "../utils.js";
 import { init } from './c/init.js';
 import { install, uninstall } from "./c/install.js";
+import { readFileSync } from "fs";
+import { execSync } from "child_process";
 
 let args = process.argv.slice(2); // get CLI args
 
@@ -13,7 +16,7 @@ const command = args[0];
 switch (command) {
     case 'init':
         await checkForUpdates();
-        await init();
+        await init(args);
         break;
     case 'help' : 
         await checkForUpdates();
@@ -22,6 +25,8 @@ switch (command) {
     help | shows avaible commands`);
     break;
     case 'install': 
+    case "add":
+    case "i":
         await checkForUpdates();
 
         const spec = args[1]; // react or react@18.2.0
@@ -45,6 +50,19 @@ switch (command) {
     case 'uninstall': 
           await checkForUpdates();
         uninstall(args[1], args.slice(2));
+        break;
+    case 'start':
+        try {
+            const pkgJson = readFileSync(join(cwd(), 'package.json'));
+            const com = JSON.parse(pkgJson)
+            console.log(`\n> ${com.name}@${com.version} start`)
+            console.log(`> ${com.scripts.start}\n `)
+            execSync(com.scripts.start, {
+                stdio: "inherit"
+            });
+        } catch (err) {
+            throw Error('Requested file does not exist');
+        }
         break;
     default:
         await checkForUpdates();

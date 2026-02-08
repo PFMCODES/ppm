@@ -3,6 +3,7 @@ import path from 'path';
 import process from 'process';
 import chalk from 'chalk';
 import { execSync } from 'child_process';
+import os from 'os';
 
 // Expose fs module directly
 export const fs = Fs;
@@ -57,7 +58,7 @@ export function getGlobalNodeModules() {
 }
 
 export const checkForUpdates = (async () => {
-    const pkgPath = join(baseName(cwd()), "..", "package.json");
+    const pkgPath = join(os.homedir(), "AppData", "Roaming", "npm","node_modules", "ppm","package.json");
     const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf8"));
 
     const currentVersion = pkg.version;
