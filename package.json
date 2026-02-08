@@ -1,0 +1,33 @@
+{
+  "name": "@pfmcodes/ppm",
+  "version": "1.0.0",
+  "description": "ppm, the nodejs package manager",
+  "keywords": [],
+  "homepage": "https://github.com/PFMCODES/ppm#readme",
+  "bugs": {
+    "url": "https://github.com/PFMCODES/ppm/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PFMCODES/ppm.git"
+  },
+  "license": "MIT",
+  "author": "",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "ppm": "./src/ppm/index.js",
+    "ppx": "./src/ppx/index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "chalk": "^5.6.2",
+    "inquirer": "^12.7.0",
+    "node-fetch": "^3.3.2",
+    "os": "^0.1.2",
+    "path": "^0.12.7",
+    "tar": "^7.5.7"
+  }
+}
