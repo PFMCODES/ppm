@@ -1,6 +1,6 @@
 <h1 style="color: #9AEDFE">ppm</h1>
 
-> <h2>The <span style="color: #F3F99C">JS</span> package manager</h2>
+<h2>The <span style="color: #F3F99C">JS</span> package manager</h2>
 <br>
 
 # Table of Content
