@@ -1,6 +1,6 @@
 {
   "name": "@pfmcodes/ppm",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "ppm, the nodejs package manager",
   "keywords": [],
   "homepage": "https://github.com/PFMCODES/ppm#readme",
@@ -23,6 +23,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "@inquirer/core": "^11.1.1",
     "chalk": "^5.6.2",
     "inquirer": "^12.7.0",
     "node-fetch": "^3.3.2",
